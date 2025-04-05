@@ -1,0 +1,10 @@
+#!/bin/sh
+#ulimit -s 100000
+#ulimit -c unlimited
+g++ -O3 -fopenmp -o gen_prog_test gen_prog_test.cpp
+time ./gen_prog_test configt0.txt 
+time ./gen_prog_test configt1.txt rothc.csv # generated in z_rothC rothC for compare
+time ./gen_prog_test configt2.txt irr.csv # makariv_2024 station_data.xlsx sensor 1
+time ./gen_prog_test configt3.txt clC.csv # x=0.4, 0 - C, 1 - H(0), 2 - C(0), a=b=1 
+./gen_prog_test configt5a.txt vir.csv
+./gen_prog_test configt5.txt vir.csv

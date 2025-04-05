@@ -1,0 +1,24 @@
+1e300 // maximal/penalty fitness function value
+10 // maximal constant node value
+5 // maximal generated tree depth
+32 // maximal number of nodes in a tree
+200 // population size
+0.05 // probability of mutation
+0.1 // exponent for higher mutation probability on dense populations (0 - constant probability)
+0.05 // size of random constants shifts
+10 // number of constants shifts per iteration
+60000 // maximal number of iterations
+1e-4 // min difference between max and min f.f. values in the population
+1e-3 // min fitness function value
+1e-4 // min difference of subtree value in x points to consider the subtree as constant
+1 // max accumulated error to stop calculating f.f. and return penalty value
+25 // multiplier for crossover weight function
+0.1 // regularization a
+50 // minimal number of points to be processes before possible f.f. calculation stop
+0 // fitness function through F
+0 // fit f=g(*) not df/dt=g(*)
+1 // no x in fitting
+0 // number of x points to calculate f.f. (0 - all points)
+0 // debug
+1 // silent
+0 // is derivative
