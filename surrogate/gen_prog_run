@@ -1,0 +1,115 @@
+#!/bin/sh
+solver="./gen_prog_test_v2"
+# "./gen_prog_test"
+ulimit -s 100000
+ulimit -c unlimited
+direct=$1
+index=$2
+test_only=$3
+split_divisor=$4
+directory=$5
+if [ -z "$split_divisor" ]
+then
+    split_divisor=2
+fi
+if [ -z "$test_only" ]
+then
+    test_only=0
+fi
+# extract from dataset in res_pr.txt
+tail -n +2 res_pr.txt | sed 's/,/ /g' | nl -w1 -s" " > res_pr_gprog.txt
+if [ $direct -eq 1 ]
+then
+#direct
+    i=`expr 13 + $index \* 3`
+    cut -d " " -f1-10,$i res_pr_gprog.txt > res_pr_gprog1.txt # 13 - index of the first C value, next values - +3
+else
+#inverse
+    i=`expr 2 + $index`
+    awk "{
+	printf \"%s%s\", \$1, OFS;
+	for (i = 13; i <= NF; i += 3)
+    	    printf \"%s%s\", \$i, OFS;
+	printf \"%s%s\", \$$i, ORS;
+    }" res_pr_gprog.txt > res_pr_gprog1.txt # 2 - index of the parameter value, next values - +1
+fi
+
+# split extracted data set onto training and testing parts
+l=`wc -l res_pr_gprog1.txt | cut -d " " -f1`
+if [ $split_divisor -ne 0 ]
+then
+    l1=`expr $l / $split_divisor + 1`
+    l2=`expr $l - $l1`
+else
+    l1=0
+    l2=$l
+fi
+echo $l $l1 $l2
+head -n $l1 res_pr_gprog1.txt > res_pr_gprog_train.txt
+tail -n $l2 res_pr_gprog1.txt > res_pr_gprog_test.txt
+
+# normalize all values according to the complete dataset's mins and maxes
+if [ $test_only -ne 1 ]
+then
+    ./normalize_all.py res_pr_gprog1.txt res_pr_gprog_train.txt res_pr_gprog_train_n.txt res_pr_gprog1_minmax_${direct}_${index}.txt
+    ./normalize_all.py res_pr_gprog1.txt res_pr_gprog_test.txt res_pr_gprog_test_n.txt res_pr_gprog1_minmax_${direct}_${index}.txt
+else
+    if [ ! -f "${directory}res_pr_gprog1_minmax_${direct}_${index}.txt" ]
+    then
+	./normalize_all.py res_pr_gprog1.txt res_pr_gprog_train.txt res_pr_gprog_train_n.txt ${directory}res_pr_gprog1_minmax_${direct}_${index}.txt
+    fi
+    ./normalize_from_file.py res_pr_gprog_test.txt res_pr_gprog_test_n.txt ${directory}res_pr_gprog1_minmax_${direct}_${index}.txt
+fi
+# do training and testing
+if [ $direct -eq 1 ]
+then
+#direct
+    if [ $test_only -ne 1 ]
+    then
+	$solver config_gprog.txt res_pr_gprog_train_n.txt 9 "-" 1
+        $solver config_gprog.txt res_pr_gprog_test_n.txt 9 best.txt 1 > out_gprog.txt
+    else
+        $solver config_gprog.txt res_pr_gprog_test_n.txt 9 ${directory}best_${direct}_${index}.txt 1 > out_gprog.txt
+    fi
+else
+#inverse
+    ninvcols=`awk 'NR==1 {print NF}' res_pr_gprog_test_n.txt`
+    ninvcols=`expr $ninvcols - 2`
+    echo "n_measurements:" $ninvcols
+    if [ $test_only -ne 1 ]
+    then
+        $solver config_gprog.txt res_pr_gprog_train_n.txt $ninvcols "-" 1
+        $solver config_gprog.txt res_pr_gprog_test_n.txt $ninvcols best.txt 1 > out_gprog.txt
+    else
+        $solver config_gprog.txt res_pr_gprog_test_n.txt $ninvcols ${directory}best_${direct}_${index}.txt 1 > out_gprog.txt
+    fi
+fi
+if [ $test_only -ne 1 ]
+then
+    mv best.txt best_${direct}_${index}.txt
+else
+    rm best.txt
+fi
+
+# get resulting values
+awk 'NR<30 {}; NR>=30 {v1=$5; v2=$3; print (v1,v2);}' out_gprog.txt > out_gprog1.txt
+rm out_gprog.txt
+
+# denormalize according to the complete dataset's mins and maxes
+if [ $test_only -ne 1 ]
+then
+    mmfile=res_pr_gprog1_minmax_${direct}_${index}.txt
+else
+    mmfile=${directory}res_pr_gprog1_minmax_${direct}_${index}.txt
+fi
+if [ $direct -eq 1 ]
+then
+#direct
+    ./denormalize_gprog.py out_gprog1.txt $mmfile out_gprog_${direct}_${index}.txt 9
+else
+#inverse
+    ./denormalize_gprog.py out_gprog1.txt $mmfile out_gprog_${direct}_${index}.txt $ninvcols
+fi
+
+# cleanup
+rm out_gprog1.txt

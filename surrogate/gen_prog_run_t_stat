@@ -1,0 +1,19 @@
+#!/bin/bash
+ulimit -s 100000
+ulimit -c unlimited
+
+directory=$1
+input=$2
+v=0
+
+n=`grep u_inp $input | wc -l`
+echo $input $n
+
+rm gp_t_stat.txt
+for i in $(seq 1 $n)
+do
+    r2=`./stat.py ${directory}/out_gprog_t_${i}.txt "None" $v | tail -n 1 | cut -d " " -f 2`
+    s1=`tail -n +$(( 122*($i-1)+1 )) $input | head -n 1 | cut -d" "  -f2,4,6,8,10`
+    s2=`tail -n +$(( 122*($i-1)+2 )) $input | head -n 1 | cut -d" "  -f2,4,6,8`
+    echo $i $s1 $s2 $r2 >> gp_t_stat.txt
+done

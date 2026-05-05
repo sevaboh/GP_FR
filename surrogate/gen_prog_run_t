@@ -1,0 +1,593 @@
+#!/bin/bash
+ulimit -s 100000
+ulimit -c unlimited
+
+directory=gp_t_series5
+input=log3e.txt
+
+acc_param=0.075 # step 5 - target global relative error of constants=f(inputs) approximation
+n_cand=10 # step 2, step 5 - number of candidate solutions in GP that are transfered between runs for reinforcement learning
+acc_param2=0.04 # step 4 - target global relative error
+acc_param3=0.1 # step 4 - permissible global relative error
+r2_limit=0.85 # step 4 - R2 limit for do not refine constants (if no_r2_limit=0); step 5 - R2 limit to save approximated constants while projecting onto solutions_db
+n_p2_rep=2 # step 4 - number of repeats if global relative error is below acc_params3 and above acc_param2 
+n_p3_rep=5 # step 4 - number of repeats if global relative error is above acc_params3
+n_refinements=10 # step 4 - number of iterations
+n_add_poly_power=7 # step 4 - index of iteration on which 1 is added to polynomial power
+n_projections=2 # step 5 - number of iterations. The first one - approximate GA results, the second one - project approximation results onto solutions_db, then approximate again, more than 2 - no effect
+poly_power=2 # step 5 - polynomial power: 2, then increase to 3
+
+skip_normalization=1 # step 1 - normalization of C in the dataset
+skip_structure=1 # step 2 - approximating the data set with GP
+skip_tree_clustering=1 # step 3 - clustering GP approximation, finding the most common structure
+best_structure=best_116.txt # step 3 - use this specific tree in clustering is off
+skip_ga_refining=0 # step 4 - refining constants in the selected structure using GA+gradient descent
+use_poly=1 # step 5 - finding dependencies between constants and inputs: 0 - GP (worked on small datasets with 1 and 3 parameters), 1 - polynomial
+
+# ineffective
+use_ga_cluster=0 # step 5 - approximating constants from the largest cluster. Ineffective: faster convergence for the big dataset, restrict an increase in accuracy
+cluster_eps=0.07 # step 5 - epsilon for constants sets clusterisation (if use_ga_cluster=1)
+no_r2_limit=1 # step 4 - refine only for the inputs, for which R2 limit was not reached on the previous iteration. Ineffective: stuck in a local minimum
+
+# debugging
+single_refining=0 # step 4 - do only one iteration
+continue_refining=0 # step 4 - don't remove stats and solutions_db from previous runs
+
+n=`grep u_inp $input | wc -l`
+echo $input $n
+
+####################################
+# do initial training - reveal structure
+####################################
+
+# normalization
+m0min=""
+for i in $(seq 1 $n)
+do
+    if [ $skip_normalization -eq 1 ]
+    then
+	cp ${directory}/log3a_minmax.txt log3a_minmax.txt
+	continue
+    fi
+    tail -n +$(( 122*($i-1)+2 )) $input | head -n 121 | cut -d" "  -f12,20 > res_t_03_c.txt
+    ./normalize_all.py res_t_03_c.txt res_t_03_c.txt res_t_03_c_n.txt log3a_minmax1.txt
+    cm0min=`head -n 1 log3a_minmax1.txt | cut -d " " -f1`
+    cm0max=`tail -n 1 log3a_minmax1.txt | cut -d " " -f1`
+    cm1min=`head -n 1 log3a_minmax1.txt | cut -d " " -f2`
+    cm1max=`tail -n 1 log3a_minmax1.txt | cut -d " " -f2`
+    echo $i $cm0min $cm0max $cm1min $cm1max $m0min $m0max $m1min $m1max
+    if [ "$m0min" == "" ]
+    then
+	m0min=$cm0min
+	m0max=$cm0max
+	m1min=$cm1min
+	m1max=$cm1max
+    else
+	a1=`python -c "print($m0min>$cm0min);"`
+	if [ "$a1" == "True" ]
+	then
+	    m0min=$cm0min
+	fi
+	a1=`python -c "print($m1min>$cm1min);"`
+	if [ "$a1" == "True" ]
+	then
+	    m1min=$cm1min
+	fi
+	a1=`python -c "print($m0max<$cm0max);"`
+	if [ "$a1" == "True" ]
+	then
+	    m0max=$cm0max
+	fi
+	a1=`python -c "print($m1max<$cm1max);"`
+	if [ "$a1" == "True" ]
+	then
+	    m1max=$cm1max
+	fi
+    fi
+done
+if [ $skip_normalization -eq 0 ]
+then
+    echo $m0min $m1min > log3a_minmax.txt
+    echo $m0max $m1max >> log3a_minmax.txt
+fi
+rm log3a_minmax1.txt
+
+# extract inputs
+rm gp_constants.txt
+for i in $(seq 1 $n)
+do
+    s1=`tail -n +$(( 122*($i-1)+1 )) $input | head -n 1 | cut -d" "  -f2,4,6,8,10`
+    s2=`tail -n +$(( 122*($i-1)+2 )) $input | head -n 1 | cut -d" "  -f2,4,6,8`
+    echo $i $s1 $s2 >> gp_constants.txt
+done
+
+# train
+for k in {1..3}
+do
+    if [ $skip_structure -eq 1 ]
+    then
+	continue
+    fi
+    for i in `./rows_sorting.py gp_constants.txt | cut -d " " -f1`
+    do
+		tail -n +$(( 122*($i-1)+2 )) $input | head -n 121 | cut -d" "  -f12,20 > res_t_03_c.txt
+		./normalize_from_file.py res_t_03_c.txt res_t_03_c_n.txt log3a_minmax.txt
+		if [ -f best_${i}.txt ]
+		then
+			rm candidate_0.txt
+			cp best_${i}.txt candidate_0.txt
+		fi
+		./gen_prog_test_v2 config_gprog2.txt res_t_03_c_n.txt 0 "-" 1 $n_cand $n_cand
+		mv best.txt best_${i}.txt
+    done
+done
+if [ $skip_structure -eq 0 ]
+then
+    rm -rf ${directory}
+    mkdir ${directory}
+    mv best_*.txt ${directory}
+fi
+
+######################################################
+# find most common structure
+######################################################
+
+if [ $continue_refining -eq 0 ]
+then
+    rm ${directory}/gp_t_stat.txt
+fi
+# select one candidate and apply GA to fit its constants
+if [ $skip_tree_clustering -eq 0 ]
+then
+    f_one=`./gp_trees_clustering.py 0 ${directory} | tail -n 1`
+else
+    f_one="$best_structure"
+fi
+echo $f_one
+rm candidate_0.txt
+cp ${directory}/$f_one candidate_0.txt
+
+#############################################################
+# fit constants in several refinement loops to reduce clusterization of results
+#############################################################
+
+for zuzu in $(seq 1 $n_refinements)
+do
+	if [ $continue_refining -eq 0 ]
+	then
+		rm solutions_*.txt
+	fi
+	rm ga_minmax.txt
+	if [ -f ${directory}/best_p2_1.txt ]
+	then
+		# extract constants and calculate limits
+		rm gp_constants.txt
+		echo -n > ga_minmax.txt
+		for i in $(seq 1 $n)
+		do
+			s1=`tail -n +$(( 122*($i-1)+1 )) $input | head -n 1 | cut -d" "  -f2,4,6,8,10`
+			s2=`tail -n +$(( 122*($i-1)+2 )) $input | head -n 1 | cut -d" "  -f2,4,6,8`
+			awk "BEGIN {printf \"%d %s %s \",${i},\"${s1}\",\"${s2}\";} {printf \"%s %s \",\$2,\$3;} END {printf \"\n\";}" ${directory}/best_p2_${i}.txt >> gp_constants.txt
+		done
+		n_cols=$( awk "NR==1 { print NF; }" gp_constants.txt )
+		for i in $(seq 11 $n_cols)
+		do
+			v=$( awk "NR==1 { v=\$$i; var=0; } { if (\$$i != v) var=1;} END {printf \"%d\",var;}" gp_constants.txt )
+			if [ $v -eq 1 ]
+			then
+			python -c "import sys; lines = sys.stdin.readlines(); lines.sort(key=lambda x: float(x.split()[$i-1])); print(''.join(lines), end='')" < gp_constants.txt > gp_constants1.txt
+			ll=$((`wc -l gp_constants1.txt | cut -d" " -f 1` * 10 / 100))
+			head -n -$ll gp_constants1.txt | tail -n +$ll > gp_constants2.txt
+			awk "NR==1{min=max=\$$i} {if(\$$i<min) min=\$$i; if(\$$i>max) max=\$$i} END{print min, max}" gp_constants2.txt >> ga_minmax.txt
+		fi
+		done
+	fi
+	rm gp_constants1.txt
+	rm gp_constants2.txt
+	# fit constants
+	./rows_sorting.py gp_constants.txt > gp_constants_sorted.txt
+	while true
+	do
+		if [ $skip_ga_refining -eq 1 ]
+		then 
+		    break
+		fi
+		l=`./rows_sorting.py gp_constants.txt | cut -d " " -f1 | tail -n 1`
+		echo one: $f_one l: $l
+		for i in `./rows_sorting.py gp_constants.txt | cut -d " " -f1`
+		do
+			#i=34
+			# don't recalc if previous R2>limit
+			echo $i
+			head -n $i gp_constants.txt | tail -n 1 | cut -d" " -f 2-10
+			head -n $i gp_constants.txt | tail -n 1 | cut -d" " -f 11-
+			if [ -f ${directory}/gp_t_stat.txt ]
+			then
+				prev_acc=`head -n $i ${directory}/gp_t_stat.txt | tail -n 1 | cut -d " " -f 11`
+				echo "old R2 " $prev_acc
+				if [ $no_r2_limit -eq 0 ]
+				then
+					if [ `python -c "print($prev_acc>=$r2_limit);"` == "True" ]
+					then
+						echo "r2 within limit"
+						continue
+					fi
+				fi
+			fi
+			# use as initial the solution for the nearest inputs
+			prev=`./rows_nearest.py gp_constants_sorted.txt $i`
+			if [ $prev -ne -1 ]
+			then
+				if [ -f best_p2_${prev}.txt ]
+				then
+					cp best_p2_${prev}.txt candidate_0.txt
+					echo "prev ${prev}"
+				fi
+			fi
+			# if there are previously found solutions use them as initial
+			if [ -f ${directory}/best_p2_${i}.txt ]
+			then
+				cp ${directory}/best_p2_${i}.txt candidate_0.txt
+				echo "refine previous"
+			fi 
+			inp1=`tail -n +$(( 122*($i-1)+1 )) $input | head -n 1 | cut -d" "  -f2,4,6,8,10`
+			inp2=`tail -n +$(( 122*($i-1)+2 )) $input | head -n 1 | cut -d" "  -f2,4,6,8`
+			tail -n +$(( 122*($i-1)+2 )) $input | head -n 121 | cut -d" "  -f12,20 > res_t_03_c.txt
+			./normalize_from_file.py res_t_03_c.txt res_t_03_c_n.txt log3a_minmax.txt
+			it=1
+			it2=1
+			maxnrep=$n_p2_rep
+			# repeat until accuracy limit is reached
+			while true
+			do
+				./gen_prog_test_v2 config_gprog2ga.txt res_t_03_c_n.txt 0 "-" 1 1 1 ga_minmax.txt "$inp1 $inp2" > gp_log.txt
+				acc=`cat gp_log.txt | grep '(0)' | tail -n 1 | cut -d " " -f 2 | cut -d "(" -f 1`
+				echo $i $it $it2 $acc $acc_param2 $maxnrep
+				head -n 52 gp_log.txt | tail -n 1
+				if [ `python -c "print($acc<$acc_param2);"` == "True" ]
+				then
+					break
+				fi
+				if [ `python -c "print($acc<$acc_param3);"` == "True" ]
+				then
+					if [ $it -gt $maxnrep ]
+					then
+						break
+					fi
+					it=$(($it + 1))
+				else
+					if [ $it2 -gt $maxnrep ]
+					then
+						maxnrep=$it2
+					fi
+					# do not save previous best solution as next initial if accuracy >=1 
+					if [ $prev -ne -1 ]
+					then
+						if [ "$acc" == "1" ]
+						then
+							cp best_p2_${prev}.txt candidate_0.txt
+						fi
+					fi
+				fi
+				if [ $it2 -gt $n_p3_rep ]
+				then
+					break
+				fi
+				it2=$(($it2 + 1))
+			done
+			# modify solution db - add inputs to the end of newly added lines and remove equal lines
+			# test solution
+			./gen_prog_test_v2 config_gprog2.txt res_t_03_c_n.txt 0 best.txt 1 | tail -n 121 | cut -d" " -f 3,5 > out_gprog_t.txt
+			./stat.py out_gprog_t.txt | tail -n 1
+			rm out_gprog_t.txt
+			# save best
+			mv best.txt best_p2_${i}.txt
+		done
+		if [ $i -eq $l ]
+		then
+			break
+		fi
+	done
+	mv best_p2_*.txt ${directory}
+	# remove duplicates in solutions db
+	sort -u solutions_db.txt -o solutions_db2.txt
+	mv solutions_db2.txt solutions_db.txt
+
+#############################################################
+# find dependencies between inputs and fitted constants
+#############################################################
+
+	# extract constants
+	rm gp_constants.txt
+	for i in $(seq 1 $n)
+	do
+		s1=`tail -n +$(( 122*($i-1)+1 )) $input | head -n 1 | cut -d" "  -f2,4,6,8,10`
+		s2=`tail -n +$(( 122*($i-1)+2 )) $input | head -n 1 | cut -d" "  -f2,4,6,8`
+		awk "BEGIN {printf \"%d %s %s \",${i},\"${s1}\",\"${s2}\";} {printf \"%s %s \",\$2,\$3;} END {printf \"\n\";}" ${directory}/best_p2_${i}.txt >> gp_constants.txt
+	done
+
+	# find varying inputs
+	n_inps=0
+	inps_list=""
+	for i in {2..10}
+	do
+		v=$( awk "NR==1 { v=\$$i; var=0; } { if (\$$i != v) var=1;} END {printf \"%d\",var;}" gp_constants.txt )
+		if [ $v -eq 1 ]
+		then
+			n_inps=$(( $n_inps + 1 ))
+			if [ "$inps_list" == "" ]
+			then
+				inps_list=$i
+			else
+				inps_list=$inps_list,$i
+			fi
+		fi
+	done
+	echo inputs $n_inps $inps_list
+
+#############################################################
+# make several refinement iterations for getting constants(inputs) dependencies
+#############################################################
+	if [ $zuzu -eq $n_add_poly_power ]
+	then
+		poly_power=$(( $poly_power + 1 ))
+	fi
+	for zuzuzu in $(seq 1 $n_projections)
+	do
+		# retrieve biggest cluster from gp_constants.txt
+		if [ $use_ga_cluster -eq 1 ]
+		then
+			./pca_kern.py gp_constants.txt rbf 2 0 $cluster_eps
+		fi
+#############################################################
+# get constants(inputs) dependencies
+#############################################################
+		n_cols=$( awk "NR==1 { print NF; }" gp_constants.txt )
+		cols_list=""
+		max_list=""
+		min_list=""
+		max_list_gp=""
+		min_list_gp=""
+		all_good=1
+		# use polynomial approximator
+		if [ $use_poly -eq 1 ]
+		then
+			if [ $use_ga_cluster -eq 1 ]
+			then
+				./poly_approx.py gp_constants_largest_cluster.txt $poly_power
+			else
+				./poly_approx.py gp_constants.txt $poly_power
+			fi
+		fi
+		# use GP
+		c=0
+		for i in $(seq 11 $n_cols)
+		do
+			v=$( awk "NR==1 { v=\$$i; var=0; } { if (\$$i != v) var=1;} END {printf \"%d\",var;}" gp_constants.txt )
+			if [ $v -eq 1 ]
+			then
+				# check polynomial approximator accuracy (average relative error)
+				if [ $use_ga_cluster -eq 1 ]
+				then
+					cut -d" " -f 1,$inps_list,$i gp_constants_largest_cluster.txt > gp_constants1.txt
+				else
+					cut -d" " -f 1,$inps_list,$i gp_constants.txt > gp_constants1.txt
+				fi
+				best=best_c${i}.txt
+				if [ $use_poly -ne 0 ]
+				then
+					./gen_prog_test_v2 config_gprog.txt gp_constants1.txt $n_inps $best 1 > gp_log.txt
+					tail -n +30 gp_log.txt | cut -d "%" -f 1 | cut -d " " -f 3,5 > d1.txt
+				else
+					./gen_prog_test_v2 config_gprog3.txt gp_constants1.txt $n_inps "-" 1 $n_cand $n_cand > gp_log.txt
+					tail -n +55 gp_log.txt | cut -d "%" -f 1 | cut -d " " -f 3,5 > d1.txt
+				fi
+				awk '
+						NR == FNR { if (NR == 1) { min = max = $1; }; if ($1 < min) min = $1; if ($1 > max) max = $1; next; }
+						{ 
+						range = max - min; if (range == 0) { n1 = ($1 == min) ? 0 : 1; n2 = ($2 == min) ? 0 : 1; } 
+										  else { n1 = ($1 - min) / range; n2 = ($2 - min) / range; }
+							sum_sq_diff += (n1 - n2)^2;
+						sum_sq_col1 += (n1)^2;
+						}
+						END { if (sum_sq_col1 != 0) { result = sqrt(sum_sq_diff) / sqrt(sum_sq_col1); print result; }}' d1.txt d1.txt > acc.txt
+				acc=`cat acc.txt`
+				rm acc.txt
+				rm d1.txt
+				max=$( head -n 27 gp_log.txt | tail -n 1 | cut -d " " -f 1 )
+				min=$( head -n 27 gp_log.txt | tail -n 1 | cut -d " " -f 3 )
+				if [ $use_poly -ne 0 ]
+				then
+					mv best_c${i}.txt best.txt
+				fi
+				if [ `python -c "print($acc>=$acc_param);"` == "True" ]
+				then
+					all_good=0
+				fi
+				if [ $use_poly -ne 0 ]
+				then
+					echo "Polynomial - "$i $acc $min - $max $all_good
+				else
+					echo "GP - "$i $acc $min - $max $all_good
+				fi
+				cols_list="$cols_list $i"
+				max_list="$max_list $max"
+				min_list="$min_list $min"
+				cp gp_log.txt ${directory}/gp_log_${i}.txt
+				mv best.txt ${directory}/best_c${i}.txt
+				rm gp_log.txt
+				c=$(($c+1))
+			fi
+		done
+		echo $cols_list > ${directory}/gp_t_cols_list.txt
+		echo $max_list > ${directory}/gp_t_max.txt
+		echo $min_list > ${directory}/gp_t_min.txt
+
+#############################################################
+# calculate predicted constants and do testing
+#############################################################
+
+		rm solutions_generated.txt
+		# calculate constants
+		for ii in $cols_list
+		do
+			cut -d" " -f 1,$inps_list,$ii gp_constants.txt > gp_constants1.txt
+			./gen_prog_test_v2 config_gprog.txt gp_constants1.txt $n_inps ${directory}/best_c${ii}.txt 1 > gp_log_${ii}.txt
+		done
+		for i in $(seq 1 $n)
+		do
+			# get data set
+			tail -n +$(( 122*($i-1)+2 )) $input | head -n 121 | cut -d" "  -f12,20 > res_t_03_c.txt
+			./normalize_from_file.py res_t_03_c.txt res_t_03_c_n.txt log3a_minmax.txt
+			# calculate constants
+			cp ${directory}/best_p2_1.txt best_test.txt
+			vs=""
+			c=1
+			for ii in $cols_list
+			do
+				v=$( tail -n $n gp_log_${ii}.txt | head -n $i | tail -n 1 | cut -d" " -f 5 )
+				# denormalize
+				min=`echo $min_list | cut -d " " -f $c`
+				max=`echo $max_list | cut -d " " -f $c`
+				v="`python -c "print(($v) * (($max)-($min))+($min));"`"
+				vs="${vs}${v} "
+				# insert into the tree
+				awk "{ if (2*(NR-1)+11 == $ii) \$2=$v; if (2*(NR-1)+12 == $ii) \$3=$v; printf \"%d %g %g\n\",\$1,\$2,\$3}" best_test.txt > best_test2.txt
+				rm best_test.txt 
+				mv best_test2.txt best_test.txt
+				c=$(( $c + 1 ))
+			done
+			ips=`cut -d" " -f 2,3,4,5,6,7,8,9,10 gp_constants.txt| head -n $i | tail -n 1`
+			echo "${vs}${ips}" >> solutions_generated.txt
+			./gen_prog_test_v2 config_gprog2.txt res_t_03_c_n.txt 0 best_test.txt 1 | tail -n 121 | cut -d" " -f 3,5 > out_gprog_t_${i}.txt
+		done
+		rm gp_log_*.txt
+		mv out_gprog_t_*.txt ${directory}
+		./gen_prog_run_t_stat ${directory} ${input}
+		mv gp_t_stat.txt ${directory}
+
+		if [ $zuzuzu -eq $n_projections ]
+		then
+			n_cols=0
+			for i in $cols_list
+			do
+				n_cols=$(($n_cols+1))
+			done
+			res=`./solutions_quality_check.py solutions_generated.txt solutions_generated.txt ${directory}/gp_t_stat.txt $n_cols $r2_limit solutions_new.txt | cut -d " " -f 3`
+			if [ "$res" == "" ]
+			then
+				res=0
+			fi
+			echo "R2>"$r2_limit "in" $res
+			if [ $res -eq $n ]
+			then
+				all_good=1
+			fi
+			break
+		fi
+
+		if [ $single_refining -eq 0 ]
+		then
+			if [ -s solutions_db.txt ]
+			then
+				if [ $all_good -eq 1 ]
+				then
+					break
+				fi
+			fi
+		fi
+
+#############################################################
+# update gp_constants.txt - set nearest constants from solutions_db to the generated ones [ only for point with R2<limit ]
+#############################################################
+
+		n_cols=0
+		for i in $cols_list
+		do
+			n_cols=$(($n_cols+1))
+		done
+		echo $n_cols
+		if [ -f solutions_db.txt ]
+		then 
+			if [ -s solutions_db.txt ]
+			then
+				./solutions_nearest.py solutions_generated.txt solutions_db.txt $n_cols solutions_new_n.txt
+			else
+				cp solutions_generated.txt solutions_new_n.txt
+			fi
+			./solutions_quality_check.py solutions_generated.txt solutions_new_n.txt ${directory}/gp_t_stat.txt $n_cols $r2_limit solutions_new.txt
+		else
+			cp solutions_generated.txt solutions_new.txt
+		fi
+		cc=1
+		for i in $cols_list
+		do
+			awk -v i="$i" -v j="$cc" 'NR==FNR {a[NR]=$j; next} {$i=a[FNR]} 1' solutions_new.txt gp_constants.txt > gp_constants1.txt
+			rm gp_constants.txt
+			mv gp_constants1.txt gp_constants.txt
+			cc=$(($cc+1))
+		done
+	done 
+
+#############################################################
+# replace fitted best_p2* by predicted 
+#############################################################
+
+	for ii in $cols_list
+	do
+		cut -d" " -f 1,$inps_list,$ii gp_constants.txt > gp_constants1.txt
+		./gen_prog_test_v2 config_gprog.txt gp_constants1.txt $n_inps ${directory}/best_c${ii}.txt 1 > gp_log_${ii}.txt
+	done
+	for i in $(seq 1 $n)
+	do
+		# calculate constants
+		cp ${directory}/best_p2_1.txt best_test.txt
+		c=1
+		for ii in $cols_list
+		do
+			v=$( tail -n $n gp_log_${ii}.txt | head -n $i | tail -n 1 | cut -d" " -f 5 )
+			min=`echo $min_list | cut -d " " -f $c`
+			max=`echo $max_list | cut -d " " -f $c`
+			# denormalize
+			v="`python -c "print(($v) * (($max)-($min))+($min));"`"
+			# insert into the tree
+			awk "{ if (2*(NR-1)+11 == $ii) \$2=$v; if (2*(NR-1)+12 == $ii) \$3=$v; printf \"%d %g %g\n\",\$1,\$2,\$3}" best_test.txt > best_test2.txt
+			rm best_test.txt 
+			mv best_test2.txt best_test.txt
+			c=$(( $c + 1 ))
+		done
+		mv best_test.txt ${directory}/best_p2_${i}.txt
+	done
+	rm gp_log_*.txt
+
+	if [ -s solutions_db.txt ]
+	then
+		if [ $all_good -eq 1 ]
+		then
+			break
+		fi
+	fi
+
+	if [ $single_refining -eq 1 ]
+	then
+	    break
+	fi
+done
+
+# clean up
+rm res_t_03_c*.txt
+rm best_test.txt best.txt
+rm gp_constants_largest_cluster.txt
+rm gp_constants_sorted.txt
+rm gp_constants1.txt
+rm solutions_new.txt
+rm solutions_new_n.txt
+rm candidate*.txt
+rm ga_minmax.txt
+mv log3a_minmax.txt ${directory}
+mv gp_constants.txt ${directory}
+mv solutions_generated.txt ${directory}
+if [ $single_refining -eq 0 ]
+then
+    rm solutions_db.txt
+fi
