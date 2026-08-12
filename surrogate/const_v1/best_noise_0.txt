@@ -1,0 +1,82 @@
+
+0 1
+0
+median_relative_error: 1.256670e-01
+relative_L2_error: 1.733661e-01
+R2: 8.528815e-01
+0
+median_relative_error: 6.534028e-02
+relative_L2_error: 9.999320e-02
+R2: 9.412237e-01
+0 2
+0
+median_relative_error: 2.354780e-01
+relative_L2_error: 3.127124e-01
+R2: 2.117550e-01
+0
+median_relative_error: 1.445973e-01
+relative_L2_error: 2.239463e-01
+R2: 7.534542e-01
+0 3
+0
+median_relative_error: 9.849366e-02
+relative_L2_error: 1.570733e-01
+R2: 4.830863e-01
+0
+median_relative_error: 4.813961e-02
+relative_L2_error: 8.147682e-02
+R2: 9.088873e-01
+0 4
+0
+median_relative_error: 3.045408e-01
+relative_L2_error: 3.674600e-01
+R2: 0.000000e+00
+0
+median_relative_error: 2.959411e-01
+relative_L2_error: 3.765502e-01
+R2: 0.000000e+00
+0 5
+0
+median_relative_error: 4.391804e-02
+relative_L2_error: 7.061777e-02
+R2: 8.410566e-01
+0
+median_relative_error: 2.326959e-02
+relative_L2_error: 4.239806e-02
+R2: 9.505016e-01
+0 6
+0
+median_relative_error: 1.954918e-02
+relative_L2_error: 1.000000e+00
+R2: 0.000000e+00
+0
+median_relative_error: 1.229861e-02
+relative_L2_error: 2.430065e-02
+R2: 8.758697e-01
+0 0
+0
+median_relative_error: 1.711082e-03
+relative_L2_error: 2.151469e-03
+R2: 9.999811e-01
+0
+median_relative_error: 1.457356e-02
+relative_L2_error: 2.026937e-02
+R2: 9.982816e-01
+0 7
+0
+median_relative_error: 1.234584e-01
+relative_L2_error: 2.028956e-01
+R2: 8.133304e-01
+0
+median_relative_error: 1.015120e-01
+relative_L2_error: 1.650633e-01
+R2: 8.750369e-01
+0 8
+0
+median_relative_error: 2.767931e-01
+relative_L2_error: 3.692021e-01
+R2: 0.000000e+00
+0
+median_relative_error: 3.167950e-01
+relative_L2_error: 3.682721e-01
+R2: 3.993688e-01
