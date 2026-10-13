@@ -1,0 +1,36 @@
+410 parameter sets (0 removed as corrupted), varying: ['u_inp', 'c_dur', 'c_inp', 'D', 'kmu', 'a', 'b', 'ae', 'tr']
+train sets 406, held-out test sets 4 (split by parameter set)
+['exp', 'sin', 'cos', 'sqrt', 'log']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}, 'cos': {'cos': 0}}
+Pareto front (complexity, MSE of scaled target):
+    1  6.510e-03  0.0519395000000000
+    3  5.762e-03  c_dur*0.102786645
+    4  5.762e-03  sin(c_dur*0.10289947)
+    5  4.903e-03  u_inp*c_dur*0.20638508
+    6  4.903e-03  c_dur*sin(u_inp*0.20638508)
+    7  3.884e-03  c_dur*c_inp*kmu*u_inp
+    8  3.770e-03  c_dur*c_inp*kmu*sqrt(u_inp)
+    9  3.658e-03  c_dur*c_inp*(kmu*u_inp)**0.8635492
+   10  3.414e-03  al*c_dur*c_inp*sqrt(kmu)*u_inp
+   11  3.389e-03  c_dur*c_inp*u_inp*sqrt(kmu*sin(t))
+   12  2.564e-03  c_inp*u_inp*(al*c_dur)**t*sin(t)
+   13  2.548e-03  c_inp*u_inp*sin(t)*sin(al*c_dur)**t
+   14  2.515e-03  c_inp*u_inp*(al*c_dur)**(kap + t)*sin(t)
+   15  2.441e-03  c_inp*t*sqrt(u_inp)*(al*c_dur*sqrt(kmu))**t
+   16  2.113e-03  c_inp*kmu*u_inp*(al*c_dur)**t*sin(t)/0.3184347
+   17  2.021e-03  c_inp*kmu*u_inp*(al*c_dur)**t*sin(t)/sqrt(kap)
+   18  1.652e-03  c_inp*kmu*u_inp*(al*sin(c_dur))**t*sin(t)/sqrt(kap)   <-- selected
+   19  1.615e-03  c_inp*kmu*u_inp*(al*c_dur)**(t + tau_r)*sin(t)/sqrt(kap)
+   20  1.524e-03  c_inp*kmu*u_inp*(al*sin(c_dur))**(t + tau_r)*sin(t)/sqrt(kap)
+   21  1.498e-03  c_inp*kmu*u_inp*(al*sin(c_dur))**(t + tau_r)*sin(t)/sin(sqrt(kap))
+   22  1.456e-03  0.4791517*c_inp*kmu*u_inp*(al*c_dur)**t*sin(t)/(sqrt(kap)*log(be))
+   23  1.344e-03  c_inp*u_inp*(al*c_dur)**t*sqrt(kmu**2/sqrt(kap))*sin(t)/log(be)
+   24  1.344e-03  c_inp*u_inp*(al*c_dur)**t*sqrt(sin(kmu**2)/sqrt(kap))*sin(t)/log(be)
+   26  1.309e-03  c_inp*u_inp*(al*c_dur)**t*sqrt(kmu**2/sqrt(kap))*sin(be)*sin(t)/log(be)
+   27  1.304e-03  1.1362982*c_inp*kmu*u_inp*(al*sin(c_dur))**t*sin(t)/(kap**(1/4)*log(be))
+   28  1.273e-03  1.1424583*c_inp*kmu*u_inp*(c_dur*(al - kap))**t*sin(t)/(kap**(1/4)*log(be))
+   29  1.172e-03  t*u_inp*(al*c_dur)**t*sin(c_inp*sqrt(kmu)*sqrt(kmu*(0.006237208/dd)**t/kap))/log(be)
+   30  1.143e-03  c_inp*sqrt(kmu)*u_inp*(0.0789762521268261*(al*c_dur)**t*sqrt(kmu/(dd*kap)))**sin(t)*sin(t)/log(be)
+   31  1.126e-03  t*u_inp*sin(c_inp*sqrt(kmu)*(al*c_dur)**t*(kmu*(0.005564425/dd)**t/kap)**(c_dur/2))/log(be)
+  train (in-sample)      n=406  R2 mean -1.390 median 0.229  R2>0.9   0.0%  eps mean 52.63% median 41.57% best 17.61%
+  TEST (held-out sets)   n=  4  R2 mean 0.368 median 0.630  R2>0.9   0.0%  eps mean 42.17% median 33.93% best 25.56%

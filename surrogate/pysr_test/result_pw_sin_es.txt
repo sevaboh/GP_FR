@@ -1,0 +1,976 @@
+515 parameter sets in file; 4 removed as corrupted/non-positive (C<=0, C>1.5, P<=0 or non-finite); 511 kept
+train sets 256, test sets 255 (split by parameter set, seed 0); scaling on train
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[1/83] direct_t00_x0          test R2 of runs: 0.95 0.95 0.94 0.95 0.97
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[2/83] direct_t00_x1          test R2 of runs: 0.97 0.95 0.92 0.94 0.94
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[3/83] direct_t00_x2          test R2 of runs: 0.85 0.82 0.87 0.79 0.87
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[4/83] direct_t00_x3          test R2 of runs: 0.93 0.95 0.96 0.94 0.95
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[5/83] direct_t00_x4          test R2 of runs: 0.96 0.96 0.92 0.97 0.91
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[6/83] direct_t01_x0          test R2 of runs: 0.68 0.65 0.62 0.63 0.74
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[7/83] direct_t01_x1          test R2 of runs: 0.79 0.73 0.84 0.78 0.85
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[8/83] direct_t01_x2          test R2 of runs: 0.50 0.50 0.50 0.50 0.55
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[9/83] direct_t01_x3          test R2 of runs: 0.83 0.83 0.82 0.73 0.89
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[10/83] direct_t01_x4          test R2 of runs: 0.82 0.84 0.83 0.85 0.84
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[11/83] direct_t02_x0          test R2 of runs: 0.66 0.72 0.71 0.78 0.72
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[12/83] direct_t02_x1          test R2 of runs: 0.73 0.86 0.75 0.77 0.82
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[13/83] direct_t02_x2          test R2 of runs: 0.55 0.39 0.44 0.34 0.48
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[14/83] direct_t02_x3          test R2 of runs: 0.73 0.77 0.75 0.73 0.69
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[15/83] direct_t02_x4          test R2 of runs: 0.78 0.75 0.77 0.76 0.71
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[16/83] direct_t03_x0          test R2 of runs: 0.77 0.80 0.71 0.79 0.75
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[17/83] direct_t03_x1          test R2 of runs: 0.79 0.81 0.81 0.79 0.76
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[18/83] direct_t03_x2          test R2 of runs: 0.36 0.45 0.46 0.40 0.27
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[19/83] direct_t03_x3          test R2 of runs: 0.78 0.76 0.79 0.75 0.75
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[20/83] direct_t03_x4          test R2 of runs: 0.76 0.79 0.84 0.73 0.76
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[21/83] direct_t04_x0          test R2 of runs: 0.80 0.85 0.82 0.77 0.83
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[22/83] direct_t04_x1          test R2 of runs: 0.67 0.81 0.71 0.77 0.79
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[23/83] direct_t04_x2          test R2 of runs: 0.39 0.43 0.53 0.52 0.53
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[24/83] direct_t04_x3          test R2 of runs: 0.77 0.75 0.81 0.78 0.81
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[25/83] direct_t04_x4          test R2 of runs: 0.80 0.76 0.80 0.80 0.80
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[26/83] direct_t05_x0          test R2 of runs: 0.75 0.72 0.82 0.72 0.76
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[27/83] direct_t05_x1          test R2 of runs: 0.77 0.80 0.70 0.75 0.81
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[28/83] direct_t05_x2          test R2 of runs: 0.50 0.44 0.43 0.37 0.37
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[29/83] direct_t05_x3          test R2 of runs: 0.78 0.76 0.75 0.68 0.72
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[30/83] direct_t05_x4          test R2 of runs: 0.79 0.80 0.77 0.82 0.77
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[31/83] direct_t06_x0          test R2 of runs: 0.73 0.77 0.74 0.71 0.75
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[32/83] direct_t06_x1          test R2 of runs: 0.68 0.78 0.76 0.71 0.76
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[33/83] direct_t06_x2          test R2 of runs: 0.38 0.35 0.47 0.25 0.35
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[34/83] direct_t06_x3          test R2 of runs: 0.72 0.78 0.79 0.78 0.78
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[35/83] direct_t06_x4          test R2 of runs: 0.76 0.76 0.74 0.73 0.81
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[36/83] direct_t07_x0          test R2 of runs: 0.73 0.73 0.77 0.81 0.73
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[37/83] direct_t07_x1          test R2 of runs: 0.65 0.65 0.65 0.83 0.80
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[38/83] direct_t07_x2          test R2 of runs: 0.26 0.35 0.38 0.19 0.36
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[39/83] direct_t07_x3          test R2 of runs: 0.73 0.70 0.73 0.78 0.81
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[40/83] direct_t07_x4          test R2 of runs: 0.78 0.75 0.80 0.77 0.74
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[41/83] direct_t08_x0          test R2 of runs: 0.76 0.78 0.74 0.78 0.73
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[42/83] direct_t08_x1          test R2 of runs: 0.62 0.71 0.75 0.72 0.67
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[43/83] direct_t08_x2          test R2 of runs: 0.23 0.22 0.32 0.23 0.32
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[44/83] direct_t08_x3          test R2 of runs: 0.75 0.71 0.78 0.75 0.77
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[45/83] direct_t08_x4          test R2 of runs: 0.78 0.78 0.80 0.74 0.75
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[46/83] direct_t09_x0          test R2 of runs: 0.73 0.76 0.80 0.72 0.73
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[47/83] direct_t09_x1          test R2 of runs: 0.67 0.74 0.69 0.73 0.67
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[48/83] direct_t09_x2          test R2 of runs: 0.22 0.16 0.37 0.32 0.16
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[49/83] direct_t09_x3          test R2 of runs: 0.71 0.68 0.75 0.66 0.70
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[50/83] direct_t09_x4          test R2 of runs: 0.79 0.76 0.77 0.74 0.73
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[51/83] direct_t10_x0          test R2 of runs: 0.74 0.70 0.70 0.72 0.64
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[52/83] direct_t10_x1          test R2 of runs: 0.67 0.67 0.66 0.70 0.70
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[53/83] direct_t10_x2          test R2 of runs: 0.24 0.35 0.35 0.18 0.33
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[54/83] direct_t10_x3          test R2 of runs: 0.70 0.66 0.70 0.73 0.64
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[55/83] direct_t10_x4          test R2 of runs: 0.71 0.74 0.73 0.69 0.69
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[56/83] direct_t11_x0          test R2 of runs: 0.68 0.68 0.73 0.77 0.75
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[57/83] direct_t11_x1          test R2 of runs: 0.64 0.69 0.67 0.67 0.67
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[58/83] direct_t11_x2          test R2 of runs: 0.23 0.24 0.36 0.33 0.33
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[59/83] direct_t11_x3          test R2 of runs: 0.72 0.70 0.70 0.70 0.66
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[60/83] direct_t11_x4          test R2 of runs: 0.72 0.71 0.72 0.68 0.76
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[61/83] direct_t12_x0          test R2 of runs: 0.81 0.72 0.72 0.73 0.73
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[62/83] direct_t12_x1          test R2 of runs: 0.65 0.62 0.52 0.63 0.66
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[63/83] direct_t12_x2          test R2 of runs: 0.29 0.21 0.20 0.17 0.22
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[64/83] direct_t12_x3          test R2 of runs: 0.68 0.73 0.67 0.72 0.75
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[65/83] direct_t12_x4          test R2 of runs: 0.71 0.76 0.68 0.74 0.76
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[66/83] inverse_full_u_inp     test R2 of runs: 0.92 0.95 0.90 0.86 0.92
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[67/83] inverse_full_c_dur     test R2 of runs: 0.77 0.77 0.77 0.78 0.77
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[68/83] inverse_full_c_inp     test R2 of runs: 0.27 0.27 0.27 0.27 0.27
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[69/83] inverse_full_D         test R2 of runs: 0.70 0.70 0.70 0.71 0.64
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[70/83] inverse_full_kmu       test R2 of runs: 0.12 0.12 0.10 0.12 0.12
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[71/83] inverse_full_a         test R2 of runs: 0.88 0.86 0.85 0.86 0.87
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[72/83] inverse_full_b         test R2 of runs: 0.90 0.98 0.92 0.92 0.93
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[73/83] inverse_full_ae        test R2 of runs: 0.88 0.88 0.89 0.88 0.89
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[74/83] inverse_full_tr        test R2 of runs: 0.94 0.92 0.94 0.93 0.82
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[75/83] inverse_half_u_inp     test R2 of runs: 0.89 0.91 0.88 0.91 0.89
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[76/83] inverse_half_c_dur     test R2 of runs: 0.70 0.68 0.70 0.68 0.71
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[77/83] inverse_half_c_inp     test R2 of runs: 0.27 0.27 0.32 0.27 0.32
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[78/83] inverse_half_D         test R2 of runs: 0.64 0.64 0.60 0.59 0.61
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[79/83] inverse_half_kmu       test R2 of runs: 0.12 0.12 0.12 0.12 0.12
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[80/83] inverse_half_a         test R2 of runs: 0.89 0.87 0.87 0.88 0.90
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[81/83] inverse_half_b         test R2 of runs: 0.98 0.94 0.91 0.89 0.98
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[82/83] inverse_half_ae        test R2 of runs: 0.87 0.82 0.87 0.89 0.86
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+['exp', 'sin']
+{'exp': {'exp': 0}, 'sin': {'sin': 0}}
+[83/83] inverse_half_tr        test R2 of runs: 0.92 0.92 0.93 0.90 0.89
+
+================ test R2 of individual models (analogue of Tables 2a/2b) ================
+
+direct (65 models)
+  mean over runs                                     R2 mean 0.685 median 0.740 | >0.7:  69.2%  >0.8:  12.3%  >0.9:   6.2%
+  best run by TRAIN R2 (no test leakage)             R2 mean 0.727 median 0.781 | >0.7:  78.5%  >0.8:  35.4%  >0.9:   6.2%
+  best run by TEST R2 (paper protocol, optimistic)   R2 mean 0.732 median 0.782 | >0.7:  78.5%  >0.8:  36.9%  >0.9:   6.2%
+
+inverse_full (9 models)
+  mean over runs                                     R2 mean 0.705 median 0.864 | >0.7:  66.7%  >0.8:  55.6%  >0.9:  33.3%
+  best run by TRAIN R2 (no test leakage)             R2 mean 0.723 median 0.877 | >0.7:  77.8%  >0.8:  55.6%  >0.9:  33.3%
+  best run by TEST R2 (paper protocol, optimistic)   R2 mean 0.723 median 0.877 | >0.7:  77.8%  >0.8:  55.6%  >0.9:  33.3%
+  per parameter, test R2 (mean over runs / best-by-train / best-by-test):
+    u_inp     0.911 /  0.945 /  0.945
+    c_dur     0.773 /  0.776 /  0.776
+    c_inp     0.267 /  0.267 /  0.267
+    D         0.689 /  0.709 /  0.709
+    kmu       0.117 /  0.122 /  0.122
+    a         0.864 /  0.877 /  0.877
+    b         0.931 /  0.980 /  0.980
+    ae        0.884 /  0.883 /  0.891
+    tr        0.912 /  0.944 /  0.944
+
+inverse_half (9 models)
+  mean over runs                                     R2 mean 0.690 median 0.863 | >0.7:  55.6%  >0.8:  55.6%  >0.9:  22.2%
+  best run by TRAIN R2 (no test leakage)             R2 mean 0.705 median 0.869 | >0.7:  66.7%  >0.8:  55.6%  >0.9:  44.4%
+  best run by TEST R2 (paper protocol, optimistic)   R2 mean 0.711 median 0.888 | >0.7:  66.7%  >0.8:  55.6%  >0.9:  44.4%
+  per parameter, test R2 (mean over runs / best-by-train / best-by-test):
+    u_inp     0.895 /  0.908 /  0.908
+    c_dur     0.693 /  0.705 /  0.705
+    c_inp     0.290 /  0.325 /  0.325
+    D         0.617 /  0.641 /  0.641
+    kmu       0.122 /  0.122 /  0.122
+    a         0.882 /  0.901 /  0.901
+    b         0.938 /  0.942 /  0.977
+    ae        0.863 /  0.869 /  0.888
+    tr        0.911 /  0.933 /  0.933
+
+================ combined test: inverse -> direct on test sets (analogue of Tables 3a-3c) ==========
+
+inverse 'full' + direct, selection by TRAIN R2
+   eps_tr parameters S       worst    30.21%  mean    12.78%  median   12.03%  best   3.83%
+   eps_tr ln C (65 points)   worst    43.78%  mean    10.56%  median    9.27%  best   3.32%
+   eps_tr C (65 points)      worst  2461.43%  mean    91.70%  median   54.84%  best  11.40%
+
+inverse 'full' + direct, selection by TEST R2  (optimistic: paper protocol)
+   eps_tr parameters S       worst    30.20%  mean    12.79%  median   12.02%  best   3.83%
+   eps_tr ln C (65 points)   worst    43.11%  mean    10.49%  median    9.23%  best   3.39%
+   eps_tr C (65 points)      worst  2459.29%  mean    91.71%  median   54.59%  best  11.49%
+
+inverse 'half' + direct, selection by TRAIN R2
+   eps_tr parameters S       worst    36.20%  mean    12.78%  median   11.41%  best   3.93%
+   eps_tr ln C (65 points)   worst    56.15%  mean    10.06%  median    8.66%  best   2.97%
+   eps_tr C (65 points)      worst  3189.54%  mean    84.35%  median   51.66%  best   8.91%
+
+inverse 'half' + direct, selection by TEST R2  (optimistic: paper protocol)
+   eps_tr parameters S       worst    36.21%  mean    12.74%  median   11.44%  best   3.89%
+   eps_tr ln C (65 points)   worst    54.64%  mean     9.94%  median    8.73%  best   2.87%
+   eps_tr C (65 points)      worst  3164.43%  mean    84.71%  median   51.71%  best  10.37%
+
+results saved to out_pw_sin_es
